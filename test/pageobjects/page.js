@@ -1,22 +1,15 @@
-import config from "../pageconfig/config.json";
 export default class Page {
+    constructor(config) {
+        browser.waitUntil(function () {
+            const state = browser.execute(function () {
+                return document.readyState;
+            });
+            return state === "complete";
+        }, config);
+    }
+
     // Global methods go here
     open(path) {
         browser.url(path);
-    }
-
-    waitPageToLoad() {
-        browser.waitUntil(
-            function () {
-                const state = browser.execute(function () {
-                    return document.readyState;
-                });
-                return state === "complete";
-            },
-            {
-                timeout: config.TIMEOUT,
-                timeoutMsg: "Connection timeout",
-            }
-        );
     }
 }

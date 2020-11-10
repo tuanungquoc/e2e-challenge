@@ -15,8 +15,12 @@ class TallestBuildingItem extends Item {
     get value() {
         let value = {};
         value.nameLinkText = this.nameLink.getText();
-        value.heightInMeter = this.heightInMeter.getText().replace(",", "");
-        value.heightInFeet = this.heightInFeet.getText().replace(",", "");
+        value.heightInMeter = Number(
+            this.heightInMeter.getText().replace(",", "")
+        );
+        value.heightInFeet = Number(
+            this.heightInFeet.getText().replace(",", "")
+        );
         return value;
     }
 }

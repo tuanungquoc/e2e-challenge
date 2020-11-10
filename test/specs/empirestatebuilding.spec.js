@@ -3,7 +3,6 @@ import EmpireStateBuildingPage from "../pageobjects/empirestatebuilding.page";
 describe("Wikipedia empire state building page", () => {
     it("verify  the link next to 'Preceded by' would take you to the page for the Chrysler Building", () => {
         browser.url("https://en.wikipedia.org/wiki/Empire_State_Building");
-        EmpireStateBuildingPage.waitPageToLoad();
         let expected = "/wiki/Chrysler_Building";
         let actual = EmpireStateBuildingPage.precededByLink.getAttribute(
             "href"

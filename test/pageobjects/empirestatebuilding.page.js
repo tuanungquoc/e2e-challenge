@@ -1,6 +1,10 @@
 import Page from "./page";
+import config from "../pageconfig/config.json";
 
 class EmpireStateBuilding extends Page {
+    constructor() {
+        super(config);
+    }
     // Elements go here
     get precededByLink() {
         return $("//*[contains(text(),'Preceded by')]/following-sibling::td/a");

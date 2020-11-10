@@ -3,14 +3,13 @@ import ListOfTallestBuildingPage from "../pageobjects/listoftallbuildings.page";
 describe("Wikipedia list of tall buildings page", () => {
     it("verify the second tallest building and its conversion between meter and feet", () => {
         browser.url("https://en.wikipedia.org/wiki/List_of_tallest_buildings");
-        ListOfTallestBuildingPage.waitPageToLoad();
         let secondTallestBuildingNameInfo = ListOfTallestBuildingPage.tallestBuildingsTable.getItemByPosition(
             2
         ).value;
         let expected = "Shanghai Tower";
         expect(secondTallestBuildingNameInfo.nameLinkText).toEqual(expected);
-        let heightInMeter = Number(secondTallestBuildingNameInfo.heightInMeter);
-        let heightInFeet = Number(secondTallestBuildingNameInfo.heightInFeet);
+        let heightInMeter = secondTallestBuildingNameInfo.heightInMeter;
+        let heightInFeet = secondTallestBuildingNameInfo.heightInFeet;
         let expectedHeightInFeet = Math.round(heightInMeter * 3.28);
         console.log(JSON.stringify(secondTallestBuildingNameInfo));
         expect(heightInFeet).toEqual(expectedHeightInFeet);

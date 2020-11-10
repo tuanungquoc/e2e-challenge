@@ -11,7 +11,6 @@ describe("Wikipedia home page", () => {
     });
 
     it("should allow the user to search and display results", () => {
-        HomePage.waitPageToLoad();
         HomePage.setSearchText("world's tallest building");
         //verify the auto suggestion result containing the above list
         let autoSuggestionSize = Autocompleteresultlist.size;
