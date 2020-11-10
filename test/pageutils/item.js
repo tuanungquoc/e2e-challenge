@@ -1,8 +1,5 @@
-import Page from "../pageobjects/page";
-
-class Item extends Page {
+class Item {
     constructor(locatorTemplates, itemNumber) {
-        super();
         this.locators = {};
         this.locatorTemplates = locatorTemplates;
         this.itemNumber = itemNumber;
