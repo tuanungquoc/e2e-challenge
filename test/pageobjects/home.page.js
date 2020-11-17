@@ -1,17 +1,25 @@
-import Page from './page'
+import Page from "./page";
+import config from "../pageconfig/config.json";
 
 class FormPage extends Page {
+    constructor() {
+        super(config);
+    }
     // Elements go here
-    get searchInput () { return $('#searchInput') }
-    get searchInputButton () { return $('#searchButton') }
+    get searchInput() {
+        return $("#searchInput");
+    }
+    get searchInputButton() {
+        return $("#searchButton");
+    }
 
     // Methods go here
-    setSearchText (text) {
-        this.searchInput.setValue(text)
+    setSearchText(text) {
+        this.searchInput.setValue(text);
     }
-    search () {
-        this.searchInputButton.click()
+    search() {
+        this.searchInputButton.click();
     }
 }
 
-export default new FormPage()
+export default new FormPage();
